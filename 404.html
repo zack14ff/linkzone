@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Страница не найдена — ZoneLinks</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a1016">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap">
+  <script>
+    // Та же тема, что выбрана на сайте
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('zonelinks:theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>
+    /*
+     * Эта страница самодостаточна: GitHub Pages показывает её по любому несуществующему адресу,
+     * поэтому стили встроены, а ссылки на сайт вычисляются скриптом ниже.
+     * Цвета — копия палитры из assets/css/style.css.
+     */
+    :root, :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0a1016; --bg-2: #101922; --bg-3: #16222d; --line: #1b2733; --line-2: #2a3a49;
+      --text: #e9f2f7; --text-2: #adc0cc; --muted: #7890a0;
+      --accent: #2fa8d8; --accent-2: #1d86b8; --accent-ink: #03141d; --accent-text: #5cc8e8;
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f1f6f8; --bg-2: #ffffff; --bg-3: #e7eff3; --line: #dce7ec; --line-2: #c5d5dd;
+      --text: #0e1b23; --text-2: #3a4c57; --muted: #62798a;
+      --accent: #29a3d3; --accent-2: #1a82b3; --accent-ink: #02131b; --accent-text: #0b6a92;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font: 15px/1.55 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    header { border-bottom: 1px solid var(--line); }
+    .bar { max-width: 1240px; margin: 0 auto; padding: 0 16px; height: 66px; display: flex; align-items: center; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 21px; letter-spacing: -.03em; }
+    .brand img { width: 34px; height: 34px; }
+    main { flex: 1; display: grid; place-items: center; padding: 48px 16px 72px; text-align: center; }
+    .code {
+      display: inline-flex;
+      align-items: center;
+      gap: .04em;
+      font-size: clamp(96px, 20vw, 176px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.06em;
+    }
+    .zero { display: inline-grid; place-items: center; width: .78em; height: .78em; margin: 0 .04em; }
+    .zero img { width: 100%; height: 100%; animation: float 5s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-.06em); } }
+    h1 { margin: 18px 0 8px; font-size: clamp(24px, 4vw, 32px); letter-spacing: -.02em; }
+    p { margin: 0 auto 8px; max-width: 460px; color: var(--text-2); }
+    code {
+      display: inline-block;
+      max-width: 100%;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: var(--bg-3);
+      color: var(--text);
+      font: 13px ui-monospace, 'Cascadia Code', Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line-2);
+      background: var(--bg-3);
+      font-weight: 700;
+      transition: background-color .15s, border-color .15s;
+    }
+    .btn:hover { border-color: var(--accent); }
+    .btn-primary { background: var(--accent); border-color: transparent; color: var(--accent-ink); }
+    .btn-primary:hover { background: var(--accent-2); border-color: transparent; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+    footer { padding: 20px 16px 28px; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+    @media (prefers-reduced-motion: reduce) { .zero img { animation: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" id="brand" href="/"><img id="brand-logo" alt="" hidden><span id="site-name">ZoneLinks</span></a>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <div class="code" aria-hidden="true">4<span class="zero" id="zero">0</span>4</div>
+      <h1>Эту страницу унесло течением</h1>
+      <p>По адресу <code id="path">…</code> ничего нет.</p>
+      <p>Возможно, ссылка устарела или в ней опечатка.</p>
+      <div class="actions">
+        <a class="btn btn-primary" id="home" href="/">На главную</a>
+        <a class="btn" id="mods" href="/#/mods">Каталог модов</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>Ошибка 404 · страница не найдена</footer>
+
+  <script>
+    (function () {
+      // Разделы сайта: адреса вида /mods или /mod/<slug> без «#» перенаправляются на нужную страницу
+      var ROUTES = ['mods', 'resourcepacks', 'plugins', 'mod', 'resourcepack', 'plugin'];
+      var path = location.pathname;
+      var parts = path.split('/').filter(Boolean);
+      var pathEl = document.getElementById('path');
+      try { pathEl.textContent = decodeURIComponent(path); } catch (e) { pathEl.textContent = path; }
+
+      function apply(base) {
+        var rest = path.slice(base.length).split('/').filter(Boolean);
+        if (rest.length && ROUTES.indexOf(rest[0]) >= 0) {
+          location.replace(base + '#/' + rest.join('/') + location.search);
+          return;
+        }
+        document.getElementById('home').href = base;
+        document.getElementById('brand').href = base;
+        document.getElementById('mods').href = base + '#/mods';
+
+        // Логотип вместо нуля и в шапке
+        var img = new Image();
+        img.onload = function () {
+          var zero = document.getElementById('zero');
+          zero.textContent = '';
+          img.alt = '';
+          zero.appendChild(img);
+          var brandLogo = document.getElementById('brand-logo');
+          brandLogo.src = img.src;
+          brandLogo.hidden = false;
+        };
+        img.src = base + 'assets/img/logo.svg';
+
+        // Название из настроек сайта
+        var s = document.createElement('script');
+        s.src = base + 'assets/js/config.js';
+        s.onload = function () {
+          var cfg = window.SITE_CONFIG || {};
+          if (cfg.name) {
+            document.getElementById('site-name').textContent = cfg.name;
+            document.title = 'Страница не найдена — ' + cfg.name;
+          }
+        };
+        document.head.appendChild(s);
+      }
+
+      // Где лежит сайт: в корне (ник.github.io) или в папке репозитория (ник.github.io/репозиторий/)?
+      if (!parts.length) { apply('/'); return; }
+      var candidate = '/' + parts[0] + '/';
+      fetch(candidate + 'assets/js/config.js', { method: 'HEAD', cache: 'no-store' })
+        .then(function (r) { apply(r.ok ? candidate : '/'); })
+        .catch(function () { apply('/'); });
+    })();
+  </script>
+</body>
+</html>

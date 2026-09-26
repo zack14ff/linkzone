@@ -148,6 +148,7 @@
   }
 
   function fmtSize(b) {
+    if (typeof b === 'string') return b.trim(); // размер можно указать текстом: '4.8 МБ'
     if (typeof b !== 'number' || !isFinite(b)) return '';
     const u = ['Б', 'КБ', 'МБ', 'ГБ'];
     let i = 0;
@@ -218,7 +219,7 @@
       const files = (Array.isArray(v.files) ? v.files : []).filter(f => f && f.url).map(f => ({
         name: f.name || String(f.url).split('/').pop().split('?')[0],
         url: f.url,
-        size: typeof f.size === 'number' ? f.size : null,
+        size: typeof f.size === 'number' || typeof f.size === 'string' ? f.size : null,
         primary: !!f.primary
       }));
       if (files.length && !files.some(f => f.primary)) files[0].primary = true;
@@ -236,7 +237,12 @@
       };
     }).sort((a, b) => time(b.date) - time(a.date));
 
-    const categories = uniq(raw.categories || []);
+    // Регистр не важен: 'Audio' и 'audio' — одна категория
+    const knownCats = Object.keys(CAT.categories[type]);
+    const categories = uniq((raw.categories || []).map(c => {
+      const s = String(c).trim();
+      return knownCats.find(k => k.toLowerCase() === s.toLowerCase()) || s;
+    }));
     categories.forEach(c => {
       if (!CAT.categories[type][c]) warn(`${slug}: неизвестная категория «${c}» для типа ${type}.`);
     });
@@ -255,7 +261,8 @@
       description: raw.description || '',
       icon: raw.icon || '',
       categories,
-      status: ['review', 'released', 'none'].includes(raw.status) ? raw.status : 'review',
+      // 'review' — «На проверке», 'released' — «Опубликован», 'none' (или false) — без значка и плашки
+      status: raw.status === false ? 'none' : ['review', 'released', 'none'].includes(raw.status) ? raw.status : 'review',
       demo: !!raw.demo,
       license: raw.license || '',
       licenseUrl: raw.licenseUrl || '',
@@ -1138,10 +1145,18 @@
 
   function viewNotFound(title, text) {
     setTitle('Не найдено');
-    document.getElementById('app').innerHTML = `<div class="container page">${emptyState('search',
-      title || 'Страница не найдена',
-      text || 'Похоже, такой страницы нет. Попробуй начать с главной.',
-      `<a class="btn btn-primary" href="#/">На главную</a><a class="btn" href="#/mods">${ico('box')}К модам</a>`)}</div>`;
+    document.getElementById('app').innerHTML = `
+      <div class="container page">
+        <section class="nf">
+          <div class="nf-code" aria-hidden="true">4<img src="assets/img/logo.svg" alt="">4</div>
+          <h1>${esc(title || 'Эту страницу унесло течением')}</h1>
+          <p>${esc(text || 'Такой страницы нет. Возможно, ссылка устарела или в ней опечатка.')}</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#/">На главную</a>
+            <a class="btn" href="#/mods">${ico('box')}Каталог модов</a>
+          </div>
+        </section>
+      </div>`;
   }
 
   /* ================= Роутер ================= */

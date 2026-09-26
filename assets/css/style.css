@@ -543,6 +543,29 @@ kbd {
 .empty p { margin: 0 auto 18px; max-width: 480px; color: var(--text-2); }
 .empty code { padding: 1px 6px; border-radius: 6px; background: var(--bg-3); font-size: .9em; }
 
+/* ---------- 404 ---------- */
+.nf { padding: 48px 16px 24px; text-align: center; }
+.nf-code {
+  display: inline-flex;
+  align-items: center;
+  gap: .04em;
+  font-size: clamp(96px, 20vw, 176px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.06em;
+  color: var(--text);
+}
+.nf-code img {
+  width: .78em;
+  height: .78em;
+  margin: 0 .04em;
+  animation: nf-float 5s ease-in-out infinite;
+}
+@keyframes nf-float { 50% { transform: translateY(-.06em); } }
+.nf h1 { margin: 18px 0 8px; font-size: clamp(24px, 4vw, 32px); }
+.nf p { margin: 0 auto 24px; max-width: 460px; color: var(--text-2); }
+@media (prefers-reduced-motion: reduce) { .nf-code img { animation: none; } }
+
 /* ---------- Страница проекта ---------- */
 .project-head {
   display: grid;
