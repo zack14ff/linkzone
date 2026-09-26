@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <g id="l">
+      <rect x="-7" y="-60" width="14" height="11" rx="3" fill="none" stroke="#7a6a98" stroke-width="4"/>
+      <path d="M-24 -48h48l-7 11h-34z" fill="#4c3d66"/>
+      <rect x="-19" y="-37" width="38" height="48" fill="currentColor"/>
+      <path d="M-19 -37h38v48h-38z" fill="none" stroke="#4c3d66" stroke-width="6"/>
+      <path d="M-26 11h52v8a5 5 0 0 1-5 5h-42a5 5 0 0 1-5-5z" fill="#4c3d66"/>
+    </g>
+  </defs>
+  <rect width="1280" height="720" fill="#221a31"/>
+  <g transform="translate(0 300)">
+    <g color="#ffffff" transform="translate(190 0)"><use href="#l"/></g>
+    <g color="#ffb23f" transform="translate(320 0)"><use href="#l"/></g>
+    <g color="#ff6b8b" transform="translate(450 0)"><use href="#l"/></g>
+    <g color="#b99cff" transform="translate(580 0)"><use href="#l"/></g>
+    <g color="#62d9cc" transform="translate(710 0)"><use href="#l"/></g>
+    <g color="#ffe066" transform="translate(840 0)"><use href="#l"/></g>
+    <g color="#7ed957" transform="translate(970 0)"><use href="#l"/></g>
+    <g color="#ff8fcf" transform="translate(1100 0)"><use href="#l"/></g>
+  </g>
+  <g transform="translate(0 500)">
+    <g color="#9aa0a6" transform="translate(190 0)"><use href="#l"/></g>
+    <g color="#5b6068" transform="translate(320 0)"><use href="#l"/></g>
+    <g color="#5ec8ff" transform="translate(450 0)"><use href="#l"/></g>
+    <g color="#7a5cff" transform="translate(580 0)"><use href="#l"/></g>
+    <g color="#3b7cff" transform="translate(710 0)"><use href="#l"/></g>
+    <g color="#9b6b3d" transform="translate(840 0)"><use href="#l"/></g>
+    <g color="#3fa34d" transform="translate(970 0)"><use href="#l"/></g>
+    <g color="#e0453a" transform="translate(1100 0)"><use href="#l"/></g>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    font: 13px/1.45 Inter, system-ui, sans-serif;
+    color: var(--figma-color-text, #e9f2f7);
+    background: var(--figma-color-bg, #101922);
+  }
+  h2 { margin: 0 0 4px; font-size: 15px; }
+  p { margin: 0 0 12px; color: var(--figma-color-text-secondary, #adc0cc); }
+  label { display: flex; gap: 8px; align-items: center; padding: 6px 0; cursor: pointer; }
+  button {
+    width: 100%;
+    margin: 12px 0;
+    height: 36px;
+    border: 0;
+    border-radius: 8px;
+    background: #2fa8d8;
+    color: #03141d;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button:disabled { opacity: .5; cursor: progress; }
+  #log {
+    height: 190px;
+    overflow: auto;
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--figma-color-bg-secondary, #0a1016);
+    font: 12px/1.5 ui-monospace, Consolas, monospace;
+  }
+  .ok { color: #5fd39c; }
+  .warn { color: #ffd166; }
+  .err { color: #ff7d98; }
+</style>
+
+<h2>ZoneLinks Builder</h2>
+<p>Достраивает Figma-файл сайта прямо в Figma — без MCP и без лимитов. Можно запускать повторно: каждый шаг сначала убирает свой старый результат.</p>
+
+<label><input type="checkbox" value="brand" checked> Ребрендинг: ZoneLinks, морские цвета, новый знак</label>
+<label><input type="checkbox" value="flat" checked> Убрать градиенты</label>
+<label><input type="checkbox" value="mockup" checked> 1 · Макет сайта (4 экрана)</label>
+<label><input type="checkbox" value="kit" checked> 2 · Оформить UI-кит</label>
+<label><input type="checkbox" value="logo" checked> 3 · Логотип и иконки</label>
+
+<button id="run">Запустить</button>
+<div id="log"></div>
+
+<script>
+  const run = document.getElementById('run');
+  const log = document.getElementById('log');
+  run.onclick = () => {
+    const steps = [...document.querySelectorAll('input:checked')].map(i => i.value);
+    log.textContent = '';
+    parent.postMessage({ pluginMessage: { type: 'run', steps } }, '*');
+  };
+  onmessage = e => {
+    const m = e.data.pluginMessage;
+    if (!m) return;
+    if (m.type === 'log') {
+      const d = document.createElement('div');
+      d.className = m.kind || '';
+      d.textContent = m.msg;
+      log.appendChild(d);
+      log.scrollTop = log.scrollHeight;
+    }
+    if (m.type === 'busy') run.disabled = m.value;
+  };
+</script>

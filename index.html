@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZoneLinks</title>
+  <meta name="description" content="Моды и ресурспаки для Minecraft, которые ещё проходят проверку на больших площадках.">
+  <meta name="theme-color" content="#0a1016">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="assets/js/config.js"></script>
+  <script>
+    // Тема ставится до отрисовки, чтобы страница не мигала
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('zonelinks:theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        var d = (window.SITE_CONFIG || {}).defaultTheme;
+        var sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        t = d === 'light' || (d === 'auto' && sysLight) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="app">
+    <noscript>
+      <div class="container page"><p>Для работы сайта нужен включённый JavaScript.</p></div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <div id="modal-root"></div>
+
+  <script src="assets/js/catalog.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="assets/js/markdown.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

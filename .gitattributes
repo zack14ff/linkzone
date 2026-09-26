@@ -1,0 +1,12 @@
+# Текстовые файлы — всегда с переводом строки LF (одинаково на Windows и GitHub)
+* text=auto eol=lf
+
+# Бинарные файлы: моды, архивы, картинки — git не трогает их содержимое
+*.jar  binary
+*.zip  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.gif  binary
+*.ico  binary

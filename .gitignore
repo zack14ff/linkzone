@@ -1,0 +1,15 @@
+# Системный мусор Windows / macOS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Настройки редакторов
+.vscode/
+.idea/
+*.swp
+
+# Локальные настройки Claude Code (временные конфиги превью)
+.claude/
+
+# На случай, если появятся инструменты на Node.js
+node_modules/

@@ -1,0 +1,106 @@
+  {
+    demo: true,
+    slug: 'pocket-sorter',
+    type: 'mod',
+    title: 'Pocket Sorter',
+    author: 'DemoAuthor',
+    summary: 'Сортировка инвентаря и сундуков одной кнопкой — работает только на клиенте.',
+    categories: ['storage', 'utility'],
+    status: 'review',
+    license: 'LGPL-3.0',
+    environment: { client: 'required', server: 'unsupported' },
+    published: '2026-07-14',
+    links: {},
+    dependencies: [
+      { title: 'Fabric API', url: 'https://modrinth.com/mod/fabric-api', required: true }
+    ],
+    description: `
+Надоело перекладывать предметы руками? **Pocket Sorter** добавляет кнопку сортировки
+в инвентарь и во все сундуки.
+
+## Что умеет
+- Сортировка по типу, названию или количеству
+- Горячая клавиша (по умолчанию — средняя кнопка мыши)
+- Не трогает хотбар, если не попросить
+- Работает на любом сервере — ставить мод на сервер не нужно
+`,
+    versions: [
+      {
+        name: '2.1.0 Alpha 1',
+        number: '2.1.0-alpha.1',
+        channel: 'alpha',
+        date: '2026-09-22',
+        gameVersions: ['1.21.1'],
+        loaders: ['fabric'],
+        changelog: 'Экспериментальная сортировка по цвету. Может ломаться!',
+        files: [{ name: 'placeholder.txt', url: 'files/demo/placeholder.txt', size: 447 }]
+      },
+      {
+        name: '2.0.1',
+        number: '2.0.1',
+        channel: 'release',
+        date: '2026-09-10',
+        gameVersions: ['1.21.1', '1.21'],
+        loaders: ['fabric', 'quilt'],
+        changelog: '- Исправлен вылет при открытии шалкера',
+        files: [{ name: 'placeholder.txt', url: 'files/demo/placeholder.txt', size: 447 }]
+      },
+      {
+        name: '2.0.0',
+        number: '2.0.0',
+        channel: 'release',
+        date: '2026-08-02',
+        gameVersions: ['1.21.1', '1.21', '1.20.6', '1.20.4', '1.20.1'],
+        loaders: ['fabric', 'quilt'],
+        changelog: `
+- Новый интерфейс кнопок
+- Сортировка по количеству
+`,
+        files: [{ name: 'placeholder.txt', url: 'files/demo/placeholder.txt', size: 447 }]
+      }
+    ]
+  },
+
+  {
+    demo: true,
+    slug: 'soft-stone-16x',
+    type: 'resourcepack',
+    title: 'Soft Stone 16x',
+    author: 'DemoAuthor',
+    summary: 'Мягкие, чуть сглаженные текстуры камня и руд в ванильном стиле.',
+    categories: ['vanilla-like', 'simplistic', 'blocks', '16x'],
+    status: 'released',
+    license: 'CC BY-NC 4.0',
+    published: '2026-06-01',
+    links: {
+      modrinth: 'https://modrinth.com/resourcepacks'  // демо-ссылка — у своего проекта поставь адрес его страницы
+    },
+    description: `
+Ванильные текстуры камня, но **спокойнее**: меньше шума, мягче переходы, руды читаются лучше.
+
+## Что меняется
+- Камень, андезит, диорит, гранит, туф
+- Все руды (обычные и глубинные)
+- Булыжник и замшелый булыжник
+`,
+    versions: [
+      {
+        name: 'Soft Stone 1.3',
+        number: '1.3',
+        channel: 'release',
+        date: '2026-09-18',
+        gameVersions: ['1.21.1', '1.21', '1.20.6', '1.20.4'],
+        changelog: '- Переработаны глубинные руды',
+        files: [{ name: 'placeholder.txt', url: 'files/demo/placeholder.txt', size: 447 }]
+      },
+      {
+        name: 'Soft Stone 1.2',
+        number: '1.2',
+        channel: 'release',
+        date: '2026-07-05',
+        gameVersions: ['1.20.6', '1.20.4', '1.20.1'],
+        changelog: '- Добавлен туф',
+        files: [{ name: 'placeholder.txt', url: 'files/demo/placeholder.txt', size: 447 }]
+      }
+    ]
+  }
