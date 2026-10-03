@@ -20,11 +20,13 @@ window.PROJECTS = [
     summary: 'Add visual for current server named NMR to make events better',
     icon: 'files/nmrvisual/logo.png',
     categories: ['visual'],
-    status: 'review',
+    status: 'released',
     license: 'Has license',
     environment: { client: 'required', server: 'required' },
     published: '2026-09-27',
-    links: {},
+        links: {
+      curseforge: 'https://www.curseforge.com/minecraft/mc-mods/no-more-visuals-no-more-return'  // демо-ссылка — у своего проекта поставь адрес его страницы
+    },
     dependencies: [
       { title: 'Fabric API', url: 'https://modrinth.com/mod/fabric-api', required: true, loaders: ['fabric'] }
     ],
@@ -59,6 +61,19 @@ window.PROJECTS = [
 
 `,
     versions: [
+            {
+        name: 'nmrvisuals_2.6.2',
+        number: '2.6.2',
+        channel: 'release',
+        date: '2026-10-02',
+        gameVersions: ['26.2'],
+        loaders: ['fabric'],
+        changelog: `
+- Фикс к хэлоину
+- больше обновлений не будет!!! ищите нас на CURSEFORGE
+`,
+        files: [{ name: 'no-more-visuals-2.6.2.jar', url: 'files/nmrvisual/no-more-visuals-2.6.1.jar', size: 176156 }]
+      },
       {
         name: 'nmrvisuals_public',
         number: '2.6.1',
@@ -85,10 +100,8 @@ window.PROJECTS = [
     categories: ['vanilla-like', 'Audio', 'DLC'],
     status: 'none',
     license: 'All Right Reversed',
+        links: {},
     published: '2026-09-26',
-    links: {
-      modrinth: '#NO'  // демо-ссылка — у своего проекта поставь адрес его страницы
-    },
     dependencies: [
       { title: 'No More Visuals', url: '#111', required: true, loaders: ['fabric'] }
     ],
